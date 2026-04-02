@@ -34,5 +34,9 @@ public class Main {
         // --- UC4 OUTPUT ---
         System.out.println("\n--- UC4 OUTPUT ---");
         consistManager.demonstrateOrderedConsist();
+
+        // --- UC5 OUTPUT ---
+        System.out.println("\n--- UC5 OUTPUT ---");
+        consistManager.demonstrateOrderAndUniqueness();
     }
 }

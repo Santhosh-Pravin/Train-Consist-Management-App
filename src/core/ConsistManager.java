@@ -2,6 +2,7 @@ package core;
 
 import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 /**
@@ -48,5 +49,27 @@ public class ConsistManager {
         orderedConsist.removeLast();
         
         System.out.println("Final train order: " + orderedConsist);
+    }
+
+    /**
+     * UC5 - Preserves Order + Uniqueness.
+     * Uses LinkedHashSet to maintain insertion order while preventing duplicates.
+     */
+    public void demonstrateOrderAndUniqueness() {
+        System.out.println("Demonstrating Preserve Order + Uniqueness (LinkedHashSet):");
+        LinkedHashSet<String> formation = new LinkedHashSet<>();
+        
+        formation.add("Engine");
+        formation.add("Sleeper");
+        formation.add("Cargo");
+        formation.add("Guard");
+        
+        boolean isAdded = formation.add("Sleeper"); // Attempt to add duplicate
+        
+        if (!isAdded) {
+            System.out.println("Duplicate 'Sleeper' was not added.");
+        }
+        
+        System.out.println("Final Formation (Order preserved, no duplicates): " + formation);
     }
 }
