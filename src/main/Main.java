@@ -1,6 +1,7 @@
 package main;
 
 import service.TrainService;
+import core.ConsistManager;
 
 /**
  * Main application entry point for the Train Consist Management App.
@@ -18,20 +19,16 @@ public class Main {
 
         // --- UC2 OUTPUT ---
         System.out.println("\n--- UC2 OUTPUT ---");
-        // Add passenger bogies
         trainService.addBogies();
-        
-        // Display list
         trainService.displayConsist();
-        
-        // Remove AC Chair
         trainService.removeBogie("AC Chair");
-        
-        // Check contains
         trainService.displayContainsBogie("Sleeper");
-        
-        // Print final list
         System.out.print("Final ");
         trainService.displayConsist();
+
+        // --- UC3 OUTPUT ---
+        System.out.println("\n--- UC3 OUTPUT ---");
+        ConsistManager consistManager = new ConsistManager();
+        consistManager.demonstrateUniqueIds();
     }
 }
