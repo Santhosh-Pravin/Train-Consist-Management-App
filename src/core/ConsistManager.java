@@ -1,6 +1,7 @@
 package core;
 
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.Set;
 
 /**
@@ -23,5 +24,29 @@ public class ConsistManager {
         
         System.out.println("Notice how duplicate 'B1' is ignored automatically.");
         System.out.println("Unique IDs: " + uniqueIds);
+    }
+
+    /**
+     * UC4 - Manages Ordered Train Consist.
+     * Uses LinkedList for efficient insertions and deletions at specific positions.
+     */
+    public void demonstrateOrderedConsist() {
+        System.out.println("Demonstrating Ordered Train Consist (LinkedList):");
+        LinkedList<String> orderedConsist = new LinkedList<>();
+        
+        orderedConsist.add("Engine");
+        orderedConsist.add("Sleeper");
+        orderedConsist.add("AC");
+        orderedConsist.add("Cargo");
+        orderedConsist.add("Guard");
+        
+        // Insert Pantry Car at index 2
+        orderedConsist.add(2, "Pantry Car");
+        
+        // Remove First and Last bogie
+        orderedConsist.removeFirst();
+        orderedConsist.removeLast();
+        
+        System.out.println("Final train order: " + orderedConsist);
     }
 }

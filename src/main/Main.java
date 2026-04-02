@@ -30,5 +30,9 @@ public class Main {
         System.out.println("\n--- UC3 OUTPUT ---");
         ConsistManager consistManager = new ConsistManager();
         consistManager.demonstrateUniqueIds();
+
+        // --- UC4 OUTPUT ---
+        System.out.println("\n--- UC4 OUTPUT ---");
+        consistManager.demonstrateOrderedConsist();
     }
 }
