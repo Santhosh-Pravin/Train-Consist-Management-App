@@ -11,6 +11,9 @@ import model.Bogie;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+import java.util.Scanner;
 
 /**
  * Core component for managing different consist formations.
@@ -240,6 +243,47 @@ public class ConsistManager {
                 .reduce(0, Integer::sum);
 
         System.out.println("\nTotal seating capacity: " + totalCapacity);
+        System.out.println("Program continues...");
+    }
+
+    /**
+     * UC11 - Validate Train ID and Cargo Code formats using Regular Expressions.
+     */
+    public void demonstrateTrainCargoValidation() {
+        System.out.println("\n--- UC11 OUTPUT ---");
+        System.out.println("Validating Train ID and Cargo Code formats:");
+
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt user for Train ID
+        System.out.print("Enter Train ID (format TRN-1234): ");
+        String trainId = scanner.nextLine();
+
+        // Prompt user for Cargo Code
+        System.out.print("Enter Cargo Code (format PET-XX): ");
+        String cargoCode = scanner.nextLine();
+
+        // Define regex patterns
+        Pattern trainPattern = Pattern.compile("TRN-\\d{4}");
+        Pattern cargoPattern = Pattern.compile("PET-[A-Z]{2}");
+
+        // Match patterns
+        Matcher trainMatcher = trainPattern.matcher(trainId);
+        Matcher cargoMatcher = cargoPattern.matcher(cargoCode);
+
+        // Validate input
+        if (trainMatcher.matches()) {
+            System.out.println("Train ID is valid: " + trainId);
+        } else {
+            System.out.println("Train ID is INVALID!");
+        }
+
+        if (cargoMatcher.matches()) {
+            System.out.println("Cargo Code is valid: " + cargoCode);
+        } else {
+            System.out.println("Cargo Code is INVALID!");
+        }
+
         System.out.println("Program continues...");
     }
 }

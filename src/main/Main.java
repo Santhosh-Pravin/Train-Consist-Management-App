@@ -75,5 +75,9 @@ public class Main {
         // --- UC10 OUTPUT ---
 // Stream API - Aggregate total seating capacity
         consistManager.demonstrateTotalSeatingCapacity();
+
+        // --- UC11 OUTPUT ---
+// Regex validation for Train ID and Cargo Code
+        consistManager.demonstrateTrainCargoValidation();
     }
 }
