@@ -71,5 +71,9 @@ public class Main {
         // --- UC9 OUTPUT ---
 // Stream API - Group Bogies by Category
         consistManager.demonstrateBogieGrouping();
+
+        // --- UC10 OUTPUT ---
+// Stream API - Aggregate total seating capacity
+        consistManager.demonstrateTotalSeatingCapacity();
     }
 }

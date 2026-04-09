@@ -12,7 +12,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-
 /**
  * Core component for managing different consist formations.
  * Demonstrates HashSet, LinkedList, and LinkedHashSet.
@@ -214,6 +213,33 @@ public class ConsistManager {
             System.out.println(name + " -> " + group);
         });
 
+        System.out.println("Program continues...");
+    }
+
+    /**
+     * UC10 - Aggregate seating capacities using Stream reduction.
+     */
+    public void demonstrateTotalSeatingCapacity() {
+        System.out.println("\n--- UC10 OUTPUT ---");
+        System.out.println("Calculating total seating capacity using Stream reduction:");
+
+        // Reuse Bogie list (same as UC7–UC9)
+        List<Bogie> bogies = new ArrayList<>();
+        bogies.add(new Bogie("Sleeper", 72));
+        bogies.add(new Bogie("AC Chair", 78));
+        bogies.add(new Bogie("First Class", 24));
+        bogies.add(new Bogie("Sleeper", 72));
+        bogies.add(new Bogie("AC Chair", 78));
+
+        System.out.println("Bogies and their capacities:");
+        bogies.forEach(System.out::println);
+
+        // Aggregate total capacity using map() + reduce()
+        int totalCapacity = bogies.stream()
+                .map(Bogie::getCapacity)
+                .reduce(0, Integer::sum);
+
+        System.out.println("\nTotal seating capacity: " + totalCapacity);
         System.out.println("Program continues...");
     }
 }
