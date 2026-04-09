@@ -67,5 +67,9 @@ public class Main {
         // --- UC8 OUTPUT ---
 // Stream API - Filter Bogies by Capacity
         consistManager.demonstrateBogieFiltering();
+
+        // --- UC9 OUTPUT ---
+// Stream API - Group Bogies by Category
+        consistManager.demonstrateBogieGrouping();
     }
 }
