@@ -63,5 +63,9 @@ public class Main {
         // --- UC7 OUTPUT ---
 // Comparator - Sort Bogies by Capacity
         consistManager.demonstrateBogieSorting();
+
+        // --- UC8 OUTPUT ---
+// Stream API - Filter Bogies by Capacity
+        consistManager.demonstrateBogieFiltering();
     }
 }
