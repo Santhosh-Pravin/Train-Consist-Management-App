@@ -4,6 +4,12 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.LinkedHashSet;
 import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Comparator;
+import model.Bogie;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Core component for managing different consist formations.
@@ -89,5 +95,64 @@ public class ConsistManager {
         }
         
         System.out.println("Final Formation (Order preserved, no duplicates): " + formation);
+    }
+
+    /**
+     * UC6 - Maps Bogie Type to Capacity.
+     * Uses HashMap to associate each bogie with its seating/load capacity.
+     */
+    public void demonstrateBogieCapacityMapping() {
+        System.out.println("\n--- UC6 OUTPUT ---");
+        System.out.println("Demonstrating Bogie-Capacity Mapping (HashMap):");
+
+        // Create HashMap
+        Map<String, Integer> bogieCapacityMap = new HashMap<>();
+
+        System.out.println("Adding bogie capacities...");
+
+        // Insert values using put()
+        bogieCapacityMap.put("Sleeper", 72);
+        bogieCapacityMap.put("AC Chair", 78);
+        bogieCapacityMap.put("First Class", 24);
+
+        // Iterating using entrySet()
+        System.out.println("Bogie Capacity Details:");
+        for (Map.Entry<String, Integer> entry : bogieCapacityMap.entrySet()) {
+            System.out.println("Bogie: " + entry.getKey() +
+                    ", Capacity: " + entry.getValue());
+        }
+
+        System.out.println("Program continues...");
+    }
+
+    /**
+     * UC7 - Sort Bogies by Capacity using Comparator.
+     */
+    public void demonstrateBogieSorting() {
+        System.out.println("\n--- UC7 OUTPUT ---");
+        System.out.println("Sorting Bogies by Capacity (Comparator):");
+
+        // Create List of Bogie objects
+        List<Bogie> bogies = new ArrayList<>();
+
+        // Add bogies
+        bogies.add(new Bogie("Sleeper", 72));
+        bogies.add(new Bogie("AC Chair", 78));
+        bogies.add(new Bogie("First Class", 24));
+
+        System.out.println("Before Sorting:");
+        for (Bogie b : bogies) {
+            System.out.println(b);
+        }
+
+        // Sort using Comparator + Lambda
+        bogies.sort(Comparator.comparingInt(Bogie::getCapacity));
+
+        System.out.println("\nAfter Sorting (Ascending Capacity):");
+        for (Bogie b : bogies) {
+            System.out.println(b);
+        }
+
+        System.out.println("Program continues...");
     }
 }
