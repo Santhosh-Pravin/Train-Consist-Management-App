@@ -4,6 +4,8 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.LinkedHashSet;
 import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Core component for managing different consist formations.
@@ -89,5 +91,32 @@ public class ConsistManager {
         }
         
         System.out.println("Final Formation (Order preserved, no duplicates): " + formation);
+    }
+    /**
+     * UC6 - Maps Bogie Type to Capacity.
+     * Uses HashMap to associate each bogie with its seating/load capacity.
+     */
+    public void demonstrateBogieCapacityMapping() {
+        System.out.println("\n--- UC6 OUTPUT ---");
+        System.out.println("Demonstrating Bogie-Capacity Mapping (HashMap):");
+
+        // Create HashMap
+        Map<String, Integer> bogieCapacityMap = new HashMap<>();
+
+        System.out.println("Adding bogie capacities...");
+
+        // Insert values using put()
+        bogieCapacityMap.put("Sleeper", 72);
+        bogieCapacityMap.put("AC Chair", 78);
+        bogieCapacityMap.put("First Class", 24);
+
+        // Iterating using entrySet()
+        System.out.println("Bogie Capacity Details:");
+        for (Map.Entry<String, Integer> entry : bogieCapacityMap.entrySet()) {
+            System.out.println("Bogie: " + entry.getKey() +
+                    ", Capacity: " + entry.getValue());
+        }
+
+        System.out.println("Program continues...");
     }
 }

@@ -55,5 +55,9 @@ public class Main {
         // --- UC5 OUTPUT ---
         // LinkedHashSet - Preserve Order + Uniqueness
         consistManager.demonstrateOrderAndUniqueness();
+
+        // --- UC6 OUTPUT ---
+        // HashMap - Bogie Capacity Mapping
+        consistManager.demonstrateBogieCapacityMapping();
     }
 }
