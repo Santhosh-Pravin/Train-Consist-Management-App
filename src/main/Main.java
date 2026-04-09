@@ -79,5 +79,9 @@ public class Main {
         // --- UC11 OUTPUT ---
 // Regex validation for Train ID and Cargo Code
         consistManager.demonstrateTrainCargoValidation();
+
+        // --- UC12 OUTPUT ---
+// Goods Bogie safety validation
+        consistManager.demonstrateGoodsBogieSafety();
     }
 }

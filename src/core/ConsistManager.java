@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 import java.util.Scanner;
+import model.GoodsBogie;
 
 /**
  * Core component for managing different consist formations.
@@ -282,6 +283,38 @@ public class ConsistManager {
             System.out.println("Cargo Code is valid: " + cargoCode);
         } else {
             System.out.println("Cargo Code is INVALID!");
+        }
+
+        System.out.println("Program continues...");
+    }
+    /**
+     * UC12 - Validate Goods Bogie safety rules using Streams and Lambda expressions.
+     */
+    public void demonstrateGoodsBogieSafety() {
+        System.out.println("\n--- UC12 OUTPUT ---");
+        System.out.println("Checking Goods Bogie Safety Compliance:");
+
+        // Create a list of goods bogies
+        List<GoodsBogie> goodsBogies = new ArrayList<>();
+        goodsBogies.add(new GoodsBogie("Cylindrical", "Petroleum"));
+        goodsBogies.add(new GoodsBogie("Box", "Coal"));
+        goodsBogies.add(new GoodsBogie("Flat", "Steel"));
+        goodsBogies.add(new GoodsBogie("Cylindrical", "Petroleum")); // safe
+        goodsBogies.add(new GoodsBogie("Cylindrical", "Coal")); // unsafe example
+
+        // Display the bogies
+        System.out.println("Goods Bogies:");
+        goodsBogies.forEach(System.out::println);
+
+        // Safety rule: Cylindrical bogies can carry only Petroleum
+        boolean isSafe = goodsBogies.stream()
+                .allMatch(b -> !b.getType().equalsIgnoreCase("Cylindrical")
+                        || b.getCargo().equalsIgnoreCase("Petroleum"));
+
+        if (isSafe) {
+            System.out.println("\nTrain is safety compliant!");
+        } else {
+            System.out.println("\nTrain is NOT safety compliant!");
         }
 
         System.out.println("Program continues...");
