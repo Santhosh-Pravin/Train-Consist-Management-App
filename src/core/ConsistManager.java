@@ -10,7 +10,7 @@ import java.util.Comparator;
 import model.Bogie;
 import java.util.HashMap;
 import java.util.Map;
-
+import java.util.stream.Collectors;
 
 
 /**
@@ -183,6 +183,36 @@ public class ConsistManager {
 
         System.out.println("\nFiltered Bogies (Capacity > 60):");
         filteredBogies.forEach(System.out::println);
+
+        System.out.println("Program continues...");
+    }
+
+    /**
+     * UC9 - Group Bogies into categories using Stream collectors.
+     */
+    public void demonstrateBogieGrouping() {
+        System.out.println("\n--- UC9 OUTPUT ---");
+        System.out.println("Grouping Bogies by Name (Stream API & Collectors):");
+
+        // Reuse Bogie list (as in UC7/UC8)
+        List<Bogie> bogies = new ArrayList<>();
+        bogies.add(new Bogie("Sleeper", 72));
+        bogies.add(new Bogie("AC Chair", 78));
+        bogies.add(new Bogie("First Class", 24));
+        bogies.add(new Bogie("Sleeper", 72));
+        bogies.add(new Bogie("AC Chair", 78));
+
+        System.out.println("Original Bogies:");
+        bogies.forEach(System.out::println);
+
+        // Grouping using Collectors.groupingBy()
+        Map<String, List<Bogie>> groupedBogies = bogies.stream()
+                .collect(Collectors.groupingBy(Bogie::getName));
+
+        System.out.println("\nGrouped Bogies:");
+        groupedBogies.forEach((name, group) -> {
+            System.out.println(name + " -> " + group);
+        });
 
         System.out.println("Program continues...");
     }
