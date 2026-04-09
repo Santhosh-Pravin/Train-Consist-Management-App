@@ -5,6 +5,8 @@ import java.util.LinkedList;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+
+
 /**
  * Core component for managing different consist formations.
  * Demonstrates HashSet, LinkedList, and LinkedHashSet.
@@ -89,5 +91,7 @@ public class ConsistManager {
         }
         
         System.out.println("Final Formation (Order preserved, no duplicates): " + formation);
+
+
     }
 }
