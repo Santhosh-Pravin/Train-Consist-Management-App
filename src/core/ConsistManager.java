@@ -159,4 +159,31 @@ public class ConsistManager {
 
         System.out.println("Program continues...");
     }
+
+    /**
+     * UC8 - Filter Bogies using Stream API.
+     */
+    public void demonstrateBogieFiltering() {
+        System.out.println("\n--- UC8 OUTPUT ---");
+        System.out.println("Filtering Bogies with Capacity > 60 (Stream API):");
+
+        // Create Bogie list (reuse same as UC7)
+        List<Bogie> bogies = new ArrayList<>();
+        bogies.add(new Bogie("Sleeper", 72));
+        bogies.add(new Bogie("AC Chair", 78));
+        bogies.add(new Bogie("First Class", 24));
+
+        System.out.println("Original Bogies:");
+        bogies.forEach(System.out::println);
+
+        // Filter using Stream API
+        List<Bogie> filteredBogies = bogies.stream()
+                .filter(b -> b.getCapacity() > 60)
+                .toList(); // Java 16+
+
+        System.out.println("\nFiltered Bogies (Capacity > 60):");
+        filteredBogies.forEach(System.out::println);
+
+        System.out.println("Program continues...");
+    }
 }
