@@ -92,6 +92,9 @@ public class Main {
         // --- UC15 OUTPUT ---
 // Runtime exception handling for cargo safety
         consistManager.demonstrateCargoSafetyHandling();
+        // --- UC16 OUTPUT ---
+// Bubble Sort implementation
+        consistManager.demonstrateBubbleSort();
     }
 
 }

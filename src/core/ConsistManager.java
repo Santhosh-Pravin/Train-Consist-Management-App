@@ -459,4 +459,44 @@ public class ConsistManager {
 
         System.out.println("Program continues safely...");
     }
+    /**
+     * UC16 - Bubble Sort Passenger Bogie Capacities
+     */
+    public void demonstrateBubbleSort() {
+
+        System.out.println("\n--- UC16 OUTPUT ---");
+        System.out.println("Bubble Sort on Passenger Bogie Capacities:");
+
+        // Step 1: Create array of capacities
+        int[] capacities = {72, 78, 24, 90, 55, 60};
+
+        System.out.println("Before Sorting:");
+        for (int c : capacities) {
+            System.out.print(c + " ");
+        }
+        System.out.println();
+
+        // Step 2: Bubble Sort logic
+        int n = capacities.length;
+
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+
+                if (capacities[j] > capacities[j + 1]) {
+                    // swap
+                    int temp = capacities[j];
+                    capacities[j] = capacities[j + 1];
+                    capacities[j + 1] = temp;
+                }
+            }
+        }
+
+        // Step 3: Print sorted array
+        System.out.println("After Sorting:");
+        for (int c : capacities) {
+            System.out.print(c + " ");
+        }
+
+        System.out.println("\nProgram continues...");
+    }
 }
