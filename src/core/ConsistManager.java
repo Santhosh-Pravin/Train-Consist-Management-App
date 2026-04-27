@@ -16,6 +16,7 @@ import java.util.regex.Matcher;
 import java.util.Scanner;
 import model.GoodsBogie;
 import model.InvalidCapacityException;
+import model. CargoSafetyException;
 
 /**
  * Core component for managing different consist formations.
@@ -413,6 +414,47 @@ public class ConsistManager {
 
         } catch (InvalidCapacityException e) {
             System.out.println("Exception caught: " + e.getMessage());
+        }
+
+        System.out.println("Program continues safely...");
+    }
+    private void assignCargoSafely(GoodsBogie bogie) {
+
+        try {
+            // Rule: Petroleum should NOT go in rectangular/box bogie
+            if (bogie.getCargo().equalsIgnoreCase("Petroleum") &&
+                    bogie.getType().equalsIgnoreCase("Box")) {
+
+                throw new CargoSafetyException(
+                        "Unsafe cargo assignment: Petroleum cannot be loaded in Box bogie!"
+                );
+            }
+
+            System.out.println("Safe assignment: " + bogie);
+
+        } catch (CargoSafetyException e) {
+            System.out.println("ERROR: " + e.getMessage());
+
+        } finally {
+            System.out.println("Logging: Cargo check completed for -> " + bogie);
+        }
+    }
+    /**
+     * UC15 - Handle unsafe cargo using try-catch-finally
+     */
+    public void demonstrateCargoSafetyHandling() {
+
+        System.out.println("\n--- UC15 OUTPUT ---");
+        System.out.println("Handling Unsafe Cargo Assignments:");
+
+        List<GoodsBogie> goodsBogies = new ArrayList<>();
+
+        goodsBogies.add(new GoodsBogie("Cylindrical", "Petroleum")); // safe
+        goodsBogies.add(new GoodsBogie("Box", "Coal"));              // safe
+        goodsBogies.add(new GoodsBogie("Box", "Petroleum"));         // unsafe
+
+        for (GoodsBogie bogie : goodsBogies) {
+            assignCargoSafely(bogie);
         }
 
         System.out.println("Program continues safely...");
