@@ -89,6 +89,9 @@ public class Main {
         // --- UC14 OUTPUT ---
 // Custom Exception handling
         consistManager.demonstrateInvalidCapacityHandling();
+        // --- UC15 OUTPUT ---
+// Runtime exception handling for cargo safety
+        consistManager.demonstrateCargoSafetyHandling();
     }
 
 }
