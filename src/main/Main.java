@@ -86,6 +86,9 @@ public class Main {
         // --- UC13 OUTPUT ---
 // Performance comparison (Loop vs Stream)
         consistManager.demonstratePerformanceComparison();
+        // --- UC14 OUTPUT ---
+// Custom Exception handling
+        consistManager.demonstrateInvalidCapacityHandling();
     }
 
 }
