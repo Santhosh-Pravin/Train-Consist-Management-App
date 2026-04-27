@@ -319,4 +319,58 @@ public class ConsistManager {
 
         System.out.println("Program continues...");
     }
+    /**
+     * UC13 - Performance Comparison (Loop vs Stream)
+     */
+    public void demonstratePerformanceComparison() {
+
+        System.out.println("\n--- UC13 OUTPUT ---");
+        System.out.println("Comparing Loop vs Stream Performance:");
+
+        // Step 1: Prepare a large collection of bogies
+        List<Bogie> bogies = new ArrayList<>();
+
+        for (int i = 0; i < 100000; i++) {
+            bogies.add(new Bogie("Sleeper", 72));
+            bogies.add(new Bogie("AC Chair", 78));
+            bogies.add(new Bogie("First Class", 24));
+        }
+
+        // ---------------- LOOP BASED ----------------
+        long startLoop = System.nanoTime();
+
+        List<Bogie> loopFiltered = new ArrayList<>();
+        for (Bogie b : bogies) {
+            if (b.getCapacity() > 60) {
+                loopFiltered.add(b);
+            }
+        }
+
+        long endLoop = System.nanoTime();
+        long loopTime = endLoop - startLoop;
+
+        // ---------------- STREAM BASED ----------------
+        long startStream = System.nanoTime();
+
+        List<Bogie> streamFiltered = bogies.stream()
+                .filter(b -> b.getCapacity() > 60)
+                .collect(Collectors.toList());
+
+        long endStream = System.nanoTime();
+        long streamTime = endStream - startStream;
+
+        // ---------------- RESULTS ----------------
+        System.out.println("Loop Time (nanoseconds): " + loopTime);
+        System.out.println("Stream Time (nanoseconds): " + streamTime);
+
+        if (loopTime < streamTime) {
+            System.out.println("Loop is faster in this run.");
+        } else if (streamTime < loopTime) {
+            System.out.println("Stream is faster in this run.");
+        } else {
+            System.out.println("Both performed equally.");
+        }
+
+        System.out.println("Program continues...");
+    }
 }
