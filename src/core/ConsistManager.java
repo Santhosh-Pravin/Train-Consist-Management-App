@@ -546,5 +546,68 @@ public class ConsistManager {
 
         System.out.println("Program continues...");
     }
+    /**
+     * UC19 - Binary Search for Bogie IDs
+     */
+    public void demonstrateBinarySearch() {
+
+        System.out.println("\n--- UC19 OUTPUT ---");
+        System.out.println("Binary Search on Sorted Bogie IDs:");
+
+        // Step 1: Sorted array (IMPORTANT precondition)
+        String[] bogieIds = {
+                "B101",
+                "B205",
+                "B309",
+                "B410",
+                "B550",
+                "B720"
+        };
+
+        String searchKey = "B410";
+
+        System.out.println("Sorted Bogie IDs:");
+        for (String id : bogieIds) {
+            System.out.print(id + " ");
+        }
+        System.out.println();
+
+        System.out.println("Searching for: " + searchKey);
+
+        // Step 2: Binary search setup
+        int low = 0;
+        int high = bogieIds.length - 1;
+
+        boolean found = false;
+
+        // Step 3: Binary search loop
+        while (low <= high) {
+
+            int mid = (low + high) / 2;
+
+            int comparison = bogieIds[mid].compareTo(searchKey);
+
+            if (comparison == 0) {
+                System.out.println("Bogie found at index: " + mid);
+                found = true;
+                break;
+            }
+            else if (comparison < 0) {
+                // mid is smaller → search right half
+                low = mid + 1;
+            }
+            else {
+                // mid is larger → search left half
+                high = mid - 1;
+            }
+        }
+
+        // Step 4: Result
+        if (!found) {
+            System.out.println("Bogie NOT found in the list.");
+        }
+
+        System.out.println("Program continues...");
+    }
 
 }
