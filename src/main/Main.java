@@ -89,6 +89,9 @@ public class Main {
         // --- UC14 OUTPUT ---
 // Custom Exception handling
         consistManager.demonstrateInvalidCapacityHandling();
+        // --- UC17 OUTPUT ---
+// Built-in sorting using Arrays.sort()
+        consistManager.demonstrateBuiltInSorting();
     }
 
 }

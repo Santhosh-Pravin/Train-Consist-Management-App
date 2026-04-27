@@ -16,6 +16,7 @@ import java.util.regex.Matcher;
 import java.util.Scanner;
 import model.GoodsBogie;
 import model.InvalidCapacityException;
+import java.util.Arrays;
 
 /**
  * Core component for managing different consist formations.
@@ -416,5 +417,35 @@ public class ConsistManager {
         }
 
         System.out.println("Program continues safely...");
+    }
+
+    /**
+     * UC17 - Sort bogie type names using Arrays.sort()
+     */
+    public void demonstrateBuiltInSorting() {
+
+        System.out.println("\n--- UC17 OUTPUT ---");
+        System.out.println("Sorting Bogie Type Names using Arrays.sort():");
+
+        // Step 1: Create array of bogie types
+        String[] bogieTypes = {
+                "Sleeper",
+                "AC Chair",
+                "First Class",
+                "General",
+                "Second Class"
+        };
+
+        System.out.println("Before Sorting:");
+        System.out.println(Arrays.toString(bogieTypes));
+
+        // Step 2: Built-in sorting (no manual logic)
+        Arrays.sort(bogieTypes);
+
+        // Step 3: Print sorted array
+        System.out.println("After Sorting (Alphabetical):");
+        System.out.println(Arrays.toString(bogieTypes));
+
+        System.out.println("Program continues...");
     }
 }
