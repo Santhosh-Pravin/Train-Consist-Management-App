@@ -98,6 +98,9 @@ public class Main {
         // --- UC18 OUTPUT ---
 // Linear search on bogie IDs
         consistManager.demonstrateLinearSearch();
+        // --- UC19 OUTPUT ---
+// Binary search on sorted bogie IDs
+        consistManager.demonstrateBinarySearch();
 
     }
 
