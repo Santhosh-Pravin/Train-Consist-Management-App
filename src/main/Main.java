@@ -83,5 +83,9 @@ public class Main {
         // --- UC12 OUTPUT ---
 // Goods Bogie safety validation
         consistManager.demonstrateGoodsBogieSafety();
+        // --- UC13 OUTPUT ---
+// Performance comparison (Loop vs Stream)
+        consistManager.demonstratePerformanceComparison();
     }
+
 }
