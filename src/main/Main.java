@@ -95,6 +95,10 @@ public class Main {
         // --- UC16 OUTPUT ---
 // Bubble Sort implementation
         consistManager.demonstrateBubbleSort();
+        // --- UC18 OUTPUT ---
+// Linear search on bogie IDs
+        consistManager.demonstrateLinearSearch();
+
     }
 
 }
