@@ -15,6 +15,7 @@ import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 import java.util.Scanner;
 import model.GoodsBogie;
+import model.InvalidCapacityException;
 
 /**
  * Core component for managing different consist formations.
@@ -143,9 +144,13 @@ public class ConsistManager {
         List<Bogie> bogies = new ArrayList<>();
 
         // Add bogies
-        bogies.add(new Bogie("Sleeper", 72));
-        bogies.add(new Bogie("AC Chair", 78));
-        bogies.add(new Bogie("First Class", 24));
+        try{
+            bogies.add(new Bogie("Sleeper", 72));
+            bogies.add(new Bogie("AC Chair", 78));
+            bogies.add(new Bogie("First Class", 24));
+        } catch (InvalidCapacityException e) {
+            System.out.println(e.getMessage());
+        }
 
         System.out.println("Before Sorting:");
         for (Bogie b : bogies) {
@@ -172,9 +177,13 @@ public class ConsistManager {
 
         // Create Bogie list (reuse same as UC7)
         List<Bogie> bogies = new ArrayList<>();
-        bogies.add(new Bogie("Sleeper", 72));
-        bogies.add(new Bogie("AC Chair", 78));
-        bogies.add(new Bogie("First Class", 24));
+        try{
+            bogies.add(new Bogie("Sleeper", 72));
+            bogies.add(new Bogie("AC Chair", 78));
+            bogies.add(new Bogie("First Class", 24));
+        } catch (InvalidCapacityException e) {
+            System.out.println(e.getMessage());
+        }
 
         System.out.println("Original Bogies:");
         bogies.forEach(System.out::println);
@@ -199,11 +208,15 @@ public class ConsistManager {
 
         // Reuse Bogie list (as in UC7/UC8)
         List<Bogie> bogies = new ArrayList<>();
-        bogies.add(new Bogie("Sleeper", 72));
-        bogies.add(new Bogie("AC Chair", 78));
-        bogies.add(new Bogie("First Class", 24));
-        bogies.add(new Bogie("Sleeper", 72));
-        bogies.add(new Bogie("AC Chair", 78));
+        try {
+            bogies.add(new Bogie("Sleeper", 72));
+            bogies.add(new Bogie("AC Chair", 78));
+            bogies.add(new Bogie("First Class", 24));
+            bogies.add(new Bogie("Sleeper", 72));
+            bogies.add(new Bogie("AC Chair", 78));
+        } catch (InvalidCapacityException e) {
+        System.out.println(e.getMessage());
+        }
 
         System.out.println("Original Bogies:");
         bogies.forEach(System.out::println);
@@ -229,11 +242,15 @@ public class ConsistManager {
 
         // Reuse Bogie list (same as UC7–UC9)
         List<Bogie> bogies = new ArrayList<>();
-        bogies.add(new Bogie("Sleeper", 72));
-        bogies.add(new Bogie("AC Chair", 78));
-        bogies.add(new Bogie("First Class", 24));
-        bogies.add(new Bogie("Sleeper", 72));
-        bogies.add(new Bogie("AC Chair", 78));
+        try{
+           bogies.add(new Bogie("Sleeper", 72));
+           bogies.add(new Bogie("AC Chair", 78));
+           bogies.add(new Bogie("First Class", 24));
+           bogies.add(new Bogie("Sleeper", 72));
+           bogies.add(new Bogie("AC Chair", 78));
+        } catch (InvalidCapacityException e) {
+            System.out.println(e.getMessage());
+        }
 
         System.out.println("Bogies and their capacities:");
         bogies.forEach(System.out::println);
@@ -331,9 +348,13 @@ public class ConsistManager {
         List<Bogie> bogies = new ArrayList<>();
 
         for (int i = 0; i < 100000; i++) {
-            bogies.add(new Bogie("Sleeper", 72));
-            bogies.add(new Bogie("AC Chair", 78));
-            bogies.add(new Bogie("First Class", 24));
+            try{
+               bogies.add(new Bogie("Sleeper", 72));
+               bogies.add(new Bogie("AC Chair", 78));
+               bogies.add(new Bogie("First Class", 24));
+            } catch (InvalidCapacityException e) {
+                System.out.println(e.getMessage());
+            }
         }
 
         // ---------------- LOOP BASED ----------------
@@ -372,5 +393,28 @@ public class ConsistManager {
         }
 
         System.out.println("Program continues...");
+    }
+    /**
+     * UC14 - Custom Exception for Invalid Bogie Capacity
+     */
+    public void demonstrateInvalidCapacityHandling() {
+
+        System.out.println("\n--- UC14 OUTPUT ---");
+        System.out.println("Validating Bogie Capacity using Custom Exception:");
+
+        try {
+            // Valid bogie
+            Bogie valid = new Bogie("Sleeper", 72);
+            System.out.println("Created: " + valid);
+
+            // Invalid bogie
+            Bogie invalid = new Bogie("Faulty", 0);
+            System.out.println("Created: " + invalid);
+
+        } catch (InvalidCapacityException e) {
+            System.out.println("Exception caught: " + e.getMessage());
+        }
+
+        System.out.println("Program continues safely...");
     }
 }
