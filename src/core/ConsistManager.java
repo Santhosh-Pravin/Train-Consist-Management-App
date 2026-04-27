@@ -610,4 +610,39 @@ public class ConsistManager {
         System.out.println("Program continues...");
     }
 
+    /**
+     * UC20 - Prevent search on empty train (Defensive Programming)
+     */
+    public void demonstrateSafeSearch(List<String> bogieIds, String searchKey) {
+
+        System.out.println("\n--- UC20 OUTPUT ---");
+        System.out.println("Defensive Search Operation:");
+
+        // Step 1: Validate state BEFORE searching
+        if (bogieIds == null || bogieIds.isEmpty()) {
+            throw new IllegalStateException("Search aborted: No bogies available in the train!");
+        }
+
+        System.out.println("Bogie list is available. Proceeding with search...");
+
+        // Step 2: Linear search (can also reuse UC18 logic)
+        boolean found = false;
+
+        for (String id : bogieIds) {
+            if (id.equals(searchKey)) {
+                found = true;
+                break;
+            }
+        }
+
+        // Step 3: Result
+        if (found) {
+            System.out.println("Bogie FOUND: " + searchKey);
+        } else {
+            System.out.println("Bogie NOT FOUND: " + searchKey);
+        }
+
+        System.out.println("Program continues safely...");
+    }
+
 }

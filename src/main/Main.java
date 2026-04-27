@@ -2,6 +2,8 @@ package main;
 
 import service.TrainService;
 import core.ConsistManager;
+import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Main application entry point for the Train Consist Management App.
@@ -101,6 +103,23 @@ public class Main {
         // --- UC19 OUTPUT ---
 // Binary search on sorted bogie IDs
         consistManager.demonstrateBinarySearch();
+        System.out.println("\n--- UC20 OUTPUT ---");
+
+        List<String> emptyList = new ArrayList<>();
+
+        try {
+            consistManager.demonstrateSafeSearch(emptyList, "B101");
+        } catch (IllegalStateException e) {
+            System.out.println("ERROR: " + e.getMessage());
+        }
+
+// Now try with valid data
+        List<String> validList = new ArrayList<>();
+        validList.add("B101");
+        validList.add("B205");
+        validList.add("B309");
+
+        consistManager.demonstrateSafeSearch(validList, "B205");
 
     }
 
