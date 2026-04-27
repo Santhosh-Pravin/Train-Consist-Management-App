@@ -118,6 +118,7 @@ public class Main {
         validList.add("B101");
         validList.add("B205");
         validList.add("B309");
+        //new 20
 
         consistManager.demonstrateSafeSearch(validList, "B205");
 
