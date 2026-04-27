@@ -499,4 +499,52 @@ public class ConsistManager {
 
         System.out.println("\nProgram continues...");
     }
+    /**
+     * UC18 - Linear Search for Bogie ID
+     */
+    public void demonstrateLinearSearch() {
+
+        System.out.println("\n--- UC18 OUTPUT ---");
+        System.out.println("Linear Search on Bogie IDs:");
+
+        // Step 1: Unsorted array of bogie IDs
+        String[] bogieIds = {
+                "B102",
+                "B205",
+                "B309",
+                "B111",
+                "B450"
+        };
+
+        // Step 2: Search key
+        String searchKey = "B111";
+
+        System.out.println("Bogie IDs:");
+        for (String id : bogieIds) {
+            System.out.print(id + " ");
+        }
+        System.out.println();
+
+        System.out.println("Searching for: " + searchKey);
+
+        // Step 3: Linear search logic
+        boolean found = false;
+
+        for (int i = 0; i < bogieIds.length; i++) {
+
+            if (bogieIds[i].equals(searchKey)) {
+                System.out.println("Bogie found at index: " + i);
+                found = true;
+                break; // early termination
+            }
+        }
+
+        // Step 4: Result
+        if (!found) {
+            System.out.println("Bogie NOT found in the list.");
+        }
+
+        System.out.println("Program continues...");
+    }
+
 }
